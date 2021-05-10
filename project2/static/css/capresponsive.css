@@ -1,0 +1,118 @@
+@media (max-width:1200px){
+    header{
+        background-position-x: -30%;
+    }
+    header h1{
+        font-size: 2rem;
+    }
+    header h1 span{
+        font-size: 2.5rem;
+    }
+    header .btn-rounded{
+        font-size: 1rem;
+    }
+
+    .crazyEvents p:nth-child(1){
+        font-size: 1.2rem;
+    }
+    .crazyEvents p:nth-child(3){
+        font-size: 2.5rem;
+    }
+    .crazyEvents p:nth-child(4){
+        font-size: 2.5rem;
+    }
+}
+@media (max-width:900px){
+    header{
+        background-position-x:-100%;
+        min-height: 70vh !important;
+    }
+    header [class*=col-]{
+        min-height: 70vh;
+    }
+    header:before{
+        min-width: 100%;
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 80%);
+    }
+    .about-us p,
+    .perks p,
+    .intern-role .card,
+    .learning-opprtunities p,
+    .faq p,
+    .faq li,
+    .faq *,
+    .eligibility p,
+    .eligibility li,
+    footer,
+    footer .btn{
+        font-size: 0.8rem;
+    }
+    .about-us h1,
+    .perks h1,
+    .intern-role h1,
+    .learning-opprtunities h1,
+    .faq h1,
+    .eligibility h1{
+        font-size: 2rem;
+    }
+}
+@media (max-width:768px){
+    header{
+        background-position-x:0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    header:before{
+        min-width: 200%;
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 80%);
+    }
+    header [class*=col-]{
+        min-height: initial;
+    }
+    .crazyEvents .row{
+        flex-direction: column-reverse;
+    }
+    .crazyEvents .row img{
+        width: 100px;
+    }
+    .about-us img{
+        margin-top: 1rem;
+    }
+    .perks img{
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .perks h1{
+        margin-bottom: 1rem;
+    }
+    .perks i,
+    .learning-opprtunities i{
+        font-size: 0.8rem;
+        padding-top: 0.15rem  !important;
+    }
+    .learning-opprtunities h1{
+        margin-bottom: 1rem;
+    }
+    .learning-opprtunities img{
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .eligibility img{
+        width: 100% !important;
+        margin-bottom: 2rem;
+    }
+}
+@media (max-width:600px){
+    .container{
+        padding: 50px 20px !important;
+    }
+    footer .col-12{
+        flex-wrap: wrap;
+        flex-direction: column !important;
+        text-align: center;
+    }
+}
+@media (max-width:400px){
+    
+}

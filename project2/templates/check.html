@@ -1,0 +1,178 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/check.css') }}">
+    <title>SYMPTOMATICS</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <input type="checkbox" name="" id="check">
+            
+            <div class="logo-container">
+                <h3 class="logo">SYMPTOM<span>atics</span></h3>
+            </div>
+
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link" style="--i: .6s">
+                            <a href="{{url_for('profile')}}">Home</a>
+                        </li>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">AboutUs<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Services</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Partners</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Why Choose Us?</a>            
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Client Testimonials</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+						
+                       
+                       
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="#">Contact</a>
+                        </li>
+						
+						<li class="nav-link" style="--i: 1.35s">
+                            <a href="{{url_for('logout')}}">SIGN OUT</a>
+                        </li>
+                       
+                    </ul>
+                </div>                
+            </div>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+		
+		
+    </header>
+	
+	<section class="section1" id="section1">
+        <div class="main">
+			<div class="base">
+			<h1>CHECK SYMPTOMS</h1><br><br>
+				<form action="/predicted_disease" method="POST">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+
+                            </div>
+                            <div class="col-4 check-symptoms">
+                                <div class="row form-group">
+                                    <label for="Symptom_1"><b>Symptom 1</b></label><br><br>
+                                    <select class="form-control" id="Symptom_1" name="Symptom1">
+                                        <option disabled selected value> -- Select a symptom -- </option>
+                                    </select>
+                                </div><br>
+
+                                <div class="row form-group">
+                                    <label for="Symptom_2"><b>Symptom 2</b></label><br><br>
+                                    <select class="form-control" id="Symptom_2" name="Symptom2">
+                                        <option disabled selected value> -- Select a symptom -- </option>
+
+                                    </select>
+                                </div><br>
+
+                                <div class="row form-group">
+                                    <label for="Symptom_3"><b>Symptom 3</b></label><br><br>
+                                    <select class="form-control" id="Symptom_3" name="Symptom3">
+                                        <option disabled selected value> -- Select a symptom -- </option>
+
+                                    </select>
+                                </div><br>
+
+                                <div class="row form-group">
+                                    <label for="Symptom_4"><b>Symptom 4</b></label><br><br>
+                                    <select class="form-control" id="Symptom_4" name="Symptom4">
+                                        <option disabled selected value> -- Select a symptom -- </option>
+
+                                    </select>
+                                </div><br>
+
+                                <div class="row form-group">
+                                    <label for="Symptom_5"><b>Symptom 5</b></label><br><br>
+                                    <select class="form-control" id="Symptom_5" name="Symptom5">
+                                        <option disabled selected value> -- Select a symptom -- </option>
+
+                                    </select>
+                                </div><br><br><br>
+
+                                <div class="row submit-button justify-content-md-center">
+                                    <div class="col-md-auto ">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+			</div>
+        </div>
+    </section>
+    
+	<script>
+    var select = document.getElementById("Symptom_1"),
+        arr = ['itching','skin_rash','nodal_skin_eruptions','continuous_sneezing','shivering','chills','joint_pain',
+  'stomach_pain','acidity','ulcers_on_tongue','muscle_wasting','vomiting','burning_micturition','spotting_ urination',
+  'fatigue','weight_gain','anxiety','cold_hands_and_feets','mood_swings','weight_loss','restlessness','lethargy',
+  'patches_in_throat','irregular_sugar_level','cough','high_fever','sunken_eyes','breathlessness','sweating',
+  'dehydration','indigestion','headache','yellowish_skin','dark_urine','nausea','loss_of_appetite','pain_behind_the_eyes',
+  'back_pain','constipation','abdominal_pain','diarrhoea','mild_fever','yellow_urine',
+  'yellowing_of_eyes','acute_liver_failure','fluid_overload','swelling_of_stomach',
+  'swelled_lymph_nodes','malaise','blurred_and_distorted_vision','phlegm','throat_irritation',
+  'redness_of_eyes','sinus_pressure','runny_nose','congestion','chest_pain','weakness_in_limbs',
+  'fast_heart_rate','pain_during_bowel_movements','pain_in_anal_region','bloody_stool',
+  'irritation_in_anus','neck_pain','dizziness','cramps','bruising','obesity','swollen_legs',
+  'swollen_blood_vessels','puffy_face_and_eyes','enlarged_thyroid','brittle_nails',
+  'swollen_extremeties','excessive_hunger','extra_marital_contacts','drying_and_tingling_lips',
+  'slurred_speech','knee_pain','hip_joint_pain','muscle_weakness','stiff_neck','swelling_joints',
+  'movement_stiffness','spinning_movements','loss_of_balance','unsteadiness',
+  'weakness_of_one_body_side','loss_of_smell','bladder_discomfort','foul_smell_of urine',
+  'continuous_feel_of_urine','passage_of_gases','internal_itching','toxic_look_(typhos)',
+  'depression','irritability','muscle_pain','altered_sensorium','red_spots_over_body','belly_pain',
+  'abnormal_menstruation','dischromic _patches','watering_from_eyes','increased_appetite','polyuria','family_history','mucoid_sputum',
+  'rusty_sputum','lack_of_concentration','visual_disturbances','receiving_blood_transfusion',
+  'receiving_unsterile_injections','coma','stomach_bleeding','distention_of_abdomen',
+  'history_of_alcohol_consumption','fluid_overload','blood_in_sputum','prominent_veins_on_calf',
+  'palpitations','painful_walking','pus_filled_pimples','blackheads','scurring','skin_peeling',
+  'silver_like_dusting','small_dents_in_nails','inflammatory_nails','blister','red_sore_around_nose',
+  'yellow_crust_ooze'],
+        select2 = document.getElementById("Symptom_2"), select3 = document.getElementById("Symptom_3"),
+        select4 = document.getElementById("Symptom_4"), select5 = document.getElementById("Symptom_5");
+
+    for(var i = 0;i < arr.length; ++i) {
+        var opt = arr[i];
+        var ele = document.createElement("option");
+        ele.textContent = opt;
+        ele.value = opt;
+        select.appendChild(ele);
+        select2.appendChild(ele.cloneNode(true));
+        select3.appendChild(ele.cloneNode(true));
+        select4.appendChild(ele.cloneNode(true));
+        select5.appendChild(ele.cloneNode(true));
+    }
+</script>
+	
+	</body>

@@ -1,0 +1,134 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/prediction.css')}}">
+	
+    <title>SYMPTOMATICS</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <input type="checkbox" name="" id="check">
+            
+            <div class="logo-container">
+                <h3 class="logo">SYMPTOM<span>atics</span></h3>
+            </div>
+
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link" style="--i: .6s">
+                            <a href="{{url_for('profile')}}">Home</a>
+                        </li>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">AboutUs<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Services</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Why Choose Us?</a>            
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Client Testimonials</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+						
+                       
+                       
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="#">Contact</a>
+                        </li>
+						
+						<li class="nav-link" style="--i: 1.35s">
+                            <a href="{{url_for('logout')}}">SIGN OUT</a>
+                        </li>
+                       
+                    </ul>
+                </div>                
+            </div>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+		
+		
+    </header>
+	
+	<section class="section1" id="section1">
+			<div class="container1">
+    <div class="rowjustify-content-md-center">
+        <div class="col-4 ">
+            <table class="tabletable-borderedborder-primary">
+                <tbody>
+                    <tr>
+                        <td class="text-center"><h3>{{sym1}}</h3><br></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><h3>{{sym2}}</h3><br></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><h3>{{sym3}}</h3><br></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><h3>{{sym4}}</h3><br></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><h3>{{sym5}}</h3></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="rowjustify-content-md-center">
+        <div class="col-4">
+            <div class="row">
+                <div class="col"> Patient Name: {{user}}</div><br>
+                <div class="col"> Age: {{age}} </div><br>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Predicted Disease: {{diseaseName}}
+                </div><br>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Doctor to Consult: {{ConsultDoc}}
+                </div><br>
+            </div>
+            <div class="row">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ ConfidenceScore }}" aria-valuemin="0" aria-valuemax="100">
+                        {{ ConfidenceScore }}%
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	<div class="consultancy">
+	<h5>This tool does not provide medical advice.It is intendedd for informational purposes only.It is not a substitute for preofessional medical advice,dignosis or treatment</h5><br><br>
+	</div>
+	<form action="{{url_for('consultancy')}}" method="post" >
+        <input type="hidden" name="consult" value="{{ConsultDoc}}">
+        <div class="butt">
+	        <button type="submit" class="btn btn-white btn-animate">CONSULTANCY</button>
+	    </div>
+    </form>
+    </section>
+	
+
+	</body>
+</html>

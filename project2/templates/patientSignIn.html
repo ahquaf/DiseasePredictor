@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signin.css') }}">
+    <title>SYMPTOMATICS</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <input type="checkbox" name="" id="check">
+            
+            <div class="logo-container">
+                <h3 class="logo">SYMPTOM<span>atics</span></h3>
+            </div>
+
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link" style="--i: .6s">
+                            <a href="{{url_for('index')}}">Home</a>
+                        </li>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">AboutUs<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Services</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Partners</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Why Choose Us?</a>            
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Client Testimonials</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+						<li class="nav-link" style="--i: .85s">
+                            <a href="#">Signin<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="signin.html">ADMIN</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="{{url_for('patientSignIn')}}">PATIENT</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="{{url_for('doctorSignIn')}}">DOCTOR</a>
+                                    </li>
+                                               
+                                </ul>
+                            </div>
+                        </li><li class="nav-link" style="--i: .85s">
+                            <a href="#">Signup<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="{{url_for('patientSignUp')}}">PATIENT</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="{{url_for('doctorSignUp')}}">DOCTOR</a>
+                                    </li>
+ 
+                                </ul>
+                            </div>
+                        </li>
+                       
+                       
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="#">Contact</a>
+                        </li>
+                       
+                    </ul>
+                </div>                
+            </div>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+		
+		
+    </header>
+	
+	<section class="section1" id="section1">
+        <div class="main">
+			<div class="base">
+
+				<form action="{{ url_for('patientSignIn')}}" method="post">
+                    <label for="email">EMAIL</label><br><br>
+                        <input type="email" id="email" name="email" value=""><br><br><br>
+                    <label for="password">PASSWORD</label><br><br>
+                    <input type="password" id="password" name="password" value=""><br><br><br>
+                    <input type="submit" name="login_user" value="Submit">
+                </form>
+			</div>
+        </div>
+    </section>
+    
+	
+	</body>

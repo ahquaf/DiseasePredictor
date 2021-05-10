@@ -1,0 +1,196 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/consultancy.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/consultancy2.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/consultancy3.css') }}">
+    <title>SYMPTOMATICS</title>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <input type="checkbox" name="" id="check">
+            
+            <div class="logo-container">
+                <h3 class="logo">SYMPTOM<span>atics</span></h3>
+            </div>
+
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link" style="--i: .6s">
+                            <a href="{{url_for('profile')}}">Home</a>
+                        </li>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">AboutUs<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Services</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Why Choose Us?</a>            
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Client Testimonials</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+						
+                       
+                       
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="#">Contact</a>
+                        </li>
+						
+						<li class="nav-link" style="--i: 1.35s">
+                            <a href="{{url_for('logout')}}">SIGN OUT</a>
+                        </li>
+                       
+                    </ul>
+                </div>                
+            </div>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+		
+		
+    </header>
+	<section class="section1" id="section1">
+        
+		<div class="head">
+		<h1>CONSULTANCY TABLE</h1>
+		</div>
+		<div class="table1">
+			<div class="table">
+
+						<div class="row header">
+							<div class="cell">
+								Doctor's Name
+							</div>
+							<div class="cell">
+								Phone
+							</div>
+							<div class="cell">
+								E-mail
+							</div>
+							<div class="cell">
+								Specialty
+							</div>
+							<div class="cell">
+								Address
+							</div>
+							<div class="cell">
+								book
+							</div>
+
+						</div>
+
+						{% for row in doclist %}
+							<div class="row">
+								<div class="cell" data-title="Doctor's Name">
+									{{ row.name }}
+								</div>
+								<div class="cell" data-title="Phone">
+									{{row.mobile}}
+								</div>
+								<div class="cell" data-title="E-mail">
+									{{row.email}}
+								</div>
+								<div class="cell" data-title="Specialty">
+									{{row.specialization}}
+								</div>
+								<div class="cell" data-title="Address">
+									{{row.address}}
+								</div>
+								<button id="modal-btnn" class="w3-button w3-round-large w3-border-red w3-white w3-border popMyButton"
+										onclick="document.getElementById('id01').style.display='block'" doc-name="{{row.name}}"
+										doc-mobile="{{row.mobile}}" doc-email="{{row.email}}" doc-spec="{{row.specialization}}"
+										doc-address="{{row.address}}">Book
+								</button>
+
+							</div>
+
+						{% endfor %}
+
+					</div>					
+		</div>
+		<div class="foot">
+		<a href="#" class="btn btn-white btn-animate">FEEDBACK</a>
+		</div>
+		
+    </section>
+
+
+<div id="id01" class="w3-modal">
+	<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 600px">
+		<div class="w3-center"><br>
+			<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-large w3-hover-red
+				w3-display-topright" title="close model">&times;</span>
+		</div>
+		<form class="w3-container" action="/consultancy" method="post">
+			<input type="hidden" id="doc-name" name="doc-name" value="">
+			<input type="hidden" id="doc-mobile" name="doc-mobile" value="">
+			<input type="hidden" id="doc-email" name="doc-email" value="">
+			<input type="hidden" id="doc-spec" name="doc-spec" value="">
+			<input type="hidden" id="doc-address" name="doc-address" value="">
+			<div class="w3-section">
+				<h4 class="w3-text-red">{{ error_msg }}</h4>
+				<label><b>Choose Date </b></label>
+				<input class="w3-input w3-border w3-margin-bottom" type="datetime-local" name="date">
+				<button class="w3-button w3-hover-gray w3-white w3-border w3-border-red w3-round-large" type="submit">Submit</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script>
+	 {% if msg_value %}
+		$(window).on('load', function() {
+
+			var docName = '{{docName}}'
+			var docMobile = '{{docMobile}}'
+			var docEmail = '{{docEmail}}'
+			var docAddress = '{{docAddress}}'
+			var docSpec = '{{docSpec}}'
+	 		$("#doc-name").val(docName);
+	 		$("#doc-mobile").val(docMobile);
+	 		$("#doc-email").val(docEmail);
+	 		$("#doc-spec").val(docSpec);
+	 		$("#doc-address").val(docAddress);
+	 		$("#id01").css("display", "block");
+		});
+	 {% endif %}
+
+	 $(function() {
+	 	$(".popMyButton").click(function() {
+	 		var docName = $(this).attr("doc-name");
+	 		var docMobile = $(this).attr("doc-mobile");
+	 		var docEmail = $(this).attr("doc-email");
+	 		var docSpec = $(this).attr("doc-spec");
+	 		var docAddr = $(this).attr("doc-address");
+	 		$("#doc-name").val(docName);
+	 		$("#doc-mobile").val(docMobile);
+	 		$("#doc-email").val(docEmail);
+	 		$("#doc-spec").val(docSpec);
+	 		$("#doc-address").val(docAddr);
+	 	});
+	 });
+</script>
+
+</body>
+</html>
